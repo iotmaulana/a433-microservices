@@ -1,0 +1,42 @@
+version: '3.0'
+
+services:
+  # main application service
+  item-app:
+    # use image from GitHub Packages
+    image: ghcr.io/iotmaulana/item-app:v1
+
+    # always restart when service is stopped
+    restart: always
+
+    # expose port 8080(container) to 80 (host)
+    ports:
+      - "80:8080"
+
+    # item-db service should already start
+    depends_on:
+      item-db:
+        condition: service_started
+
+  # database service
+  item-db:
+    # use mongo image version 3
+    image: mongo:3
+
+    # always restart when service is stopped
+    restart: always
+
+    # attach volume to store persistent data
+    volumes:
+      - app-db:/data/db
+
+    # check health of service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:27017/accumulator"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+
+# docker volume to store persistent data
+volumes:
+  app-db:
