@@ -1,11 +1,11 @@
 # make docker image
-docker build -t karsajobs-ui:v1 .
+docker build -t karsajobs-ui:latest .
 
 # show local docker images
 docker images
 
 # format to GitHub Packages image
-docker tag karsajobs-ui:v1 ghcr.io/iotmaulana/karsajobs-ui:latest
+docker tag karsajobs-ui:latest ghcr.io/iotmaulana/karsajobs-ui:latest
 
 # login to GitHub Packages
 # CR_PAT is GitHub access token(classic)
