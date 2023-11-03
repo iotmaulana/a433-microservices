@@ -9,4 +9,4 @@ spec:
     - port: 8080
       protocol: TCP
       name: app
-  clusterIP: None
+  type: NodePort
