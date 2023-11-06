@@ -1,0 +1,8 @@
+# GitHub
+https://github.com/iotmaulana/a433-microservices/tree/proyek-ketiga
+
+# order service
+https://github.com/users/iotmaulana/packages/container/package/order_service
+
+# shipping service
+https://github.com/users/iotmaulana/packages/container/package/shipping_service
